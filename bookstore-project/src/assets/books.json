@@ -1,24 +1,23 @@
-{
-  "books": [
+[
     {
       "title": "The Great Gatsby",
       "author": "F. Scott Fitzgerald",
-      "publication_date": "1925-04-10"
+      "publicationDate": "1925-04-10"
     },
     {
       "title": "To kill a Mockingbird",
       "author": "Harper Lee",
-      "publication_date": "1960-07-11"
+      "publicationDate": "1960-07-11"
     },
     {
       "title": "1984",
       "author": "George Orwell",
-      "publication_date": "1949-06-08"
+      "publicationDate": "1949-06-08"
     },
     {
       "title": "The catcher in the Rye",
       "author": "J.D. Sallinger",
-      "publication_date": "1951-07-16"
+      "publicationDate": "1951-07-16"
     }
-  ]
-}
+]
+
