@@ -4,22 +4,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './pages/book-list/book-list.component';
-import { AddBookComponent } from './pages/add-book/add-book.component';
+import { BookFormComponent } from './pages/book-form/book-form.component';
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BookService } from "./services/book.service";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    AddBookComponent
+    BookFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
