@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Book} from "../../models/book.model";
-import {Observable} from "rxjs";
+import { Book } from "../../models/book.model";
+import { BookstoreService } from "../../services/bookstore.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-book-list',
@@ -11,16 +11,17 @@ import {Observable} from "rxjs";
 export class BookListComponent implements OnInit {
   public books: Book[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private service: BookstoreService,
+              private router: Router) { }
 
   ngOnInit(): void {
-    this.getBooks().subscribe(books => {
+    this.service.getBooks().subscribe( books => {
       this.books = books;
-    });
+    })
   }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('/assets/books.json');
+  goToBookForm() {
+    this.router.navigate(['/book-form']);
   }
-
 }
+

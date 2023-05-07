@@ -7,7 +7,11 @@ import { BookListComponent } from './pages/book-list/book-list.component';
 import { BookFormComponent } from './pages/book-form/book-form.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BookService } from "./services/book.service";
+import { BookstoreService } from "./services/bookstore.service";
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import {bookstoreReducer} from "./store/bookstore.reducer";
+import { BookstoreEffects } from './store/bookstore.effects';
 
 
 @NgModule({
@@ -21,9 +25,11 @@ import { BookService } from "./services/book.service";
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ bookstore: bookstoreReducer }),
+    EffectsModule.forRoot([BookstoreEffects])
   ],
-  providers: [BookService],
+  providers: [BookstoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
